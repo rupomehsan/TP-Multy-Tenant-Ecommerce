@@ -7,6 +7,7 @@ use App\Http\Middleware\DemoMode;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Brian2694\Toastr\Facades\Toastr;
+
 /*
 |--------------------------------------------------------------------------
 | AUTHENTICATION ROUTES

@@ -272,7 +272,7 @@ class FrontendController extends Controller
 
     public function shop(Request $request)
     {
-        $categories = DB::table('categories')->where('status', 1)->orderBy('serial', 'asc')->get();
+        $categories = DB::table('categories')->where('status', 1)->orderBy('serial', 'asc')->limit(10)->get();
         $flags = DB::table('flags')->where('status', 1)->orderBy('id', 'desc')->get();
         $brands = DB::table('brands')->where('status', 1)->orderBy('serial', 'asc')->get();
 
@@ -470,7 +470,7 @@ class FrontendController extends Controller
     public function checkProductVariant(Request $request)
     {
         $query = DB::table('product_variants')->where('product_id', $request->product_id);
-        
+
         if ($request->color_id != 'null' && $request->color_id != '' && $request->color_id !== null) {
             $query->where('color_id', $request->color_id);
         }
@@ -480,7 +480,7 @@ class FrontendController extends Controller
 
         // Get the specific variant matching the selected color/size (regardless of stock)
         $data = $query->orderBy('discounted_price', 'asc')->orderBy('price', 'asc')->first();
-        
+
         if ($data) {
 
             $product = DB::table('products')->where('id', $request->product_id)->first();
@@ -502,7 +502,7 @@ class FrontendController extends Controller
 
             // Render the button HTML
             $returnHTML = view($this->baseUrl . 'product_details.cart_buy_button', compact('product', 'variants', 'totalStockAllVariants'))->render();
-            
+
             return response()->json([
                 'rendered_button' => $returnHTML,
                 'price' => $data->price,
@@ -590,7 +590,7 @@ class FrontendController extends Controller
     {
         $pageTitle = "Privacy Policy";
         $pageUrl = url('/privacy/policy');
-        $policy = DB::table('terms_and_policies')->select('privacy_policy as policy','privacy_policy_bg as bg_image')->first();
+        $policy = DB::table('terms_and_policies')->select('privacy_policy as policy', 'privacy_policy_bg as bg_image')->first();
         return view($this->baseUrl . 'policy', compact('pageTitle', 'pageUrl', 'policy'));
     }
 
@@ -598,7 +598,7 @@ class FrontendController extends Controller
     {
         $pageTitle = "Terms of Services";
         $pageUrl = url('/terms-and-conditions');
-        $policy = DB::table('terms_and_policies')->select('terms as policy','terms_bg as bg_image')->first();
+        $policy = DB::table('terms_and_policies')->select('terms as policy', 'terms_bg as bg_image')->first();
         return view($this->baseUrl . 'policy', compact('pageTitle', 'pageUrl', 'policy'));
     }
 
@@ -606,7 +606,7 @@ class FrontendController extends Controller
     {
         $pageTitle = "Refund Policy";
         $pageUrl = url('/refund/policy');
-        $policy = DB::table('terms_and_policies')->select('return_policy as policy','return_policy_bg as bg_image')->first();
+        $policy = DB::table('terms_and_policies')->select('return_policy as policy', 'return_policy_bg as bg_image')->first();
         return view($this->baseUrl . 'policy', compact('pageTitle', 'pageUrl', 'policy'));
     }
 
@@ -614,7 +614,7 @@ class FrontendController extends Controller
     {
         $pageTitle = "Shipping Policy";
         $pageUrl = url('/shipping/policy');
-        $policy = DB::table('terms_and_policies')->select('shipping_policy as policy','shipping_policy_bg as bg_image')->first();
+        $policy = DB::table('terms_and_policies')->select('shipping_policy as policy', 'shipping_policy_bg as bg_image')->first();
         return view($this->baseUrl . 'policy', compact('pageTitle', 'pageUrl', 'policy'));
     }
 

@@ -165,11 +165,22 @@
     display: none !important;
   }
 }
-@media only screen and (min-width: 480px) {
-  .main__logo--img {
-    max-width: 155px;
+@media only screen and (max-width: 767px) {
+  img.main__logo--img {
+    max-width: 150px !important;
+  }
+  
+  .header__account--btn {
+    margin-top: 5px;
   }
 }
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .main__logo--img {
+    max-width: 150px;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .main__logo--img {
     max-width: 100%;
@@ -223,6 +234,14 @@
 @media only screen and (max-width: 575px) {
   .header__account--btn__text {
     display: none;
+  }
+  
+  img.main__logo--img {
+    max-width: 150px !important;
+  }
+  
+  .header__account--btn {
+    margin-top: 5px;
   }
 }
 
@@ -395,9 +414,35 @@
     padding: 14.7rem 0;
   }
 }
+
+/* Mobile responsive styles for hero section */
+@media only screen and (max-width: 991px) {
+  .hero__bg--section {
+    margin-bottom: 15px;
+    margin-left: 0px;
+  }
+  
+  .hero__bg--items__inner img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .home__bg {
     background-position: 0;
+  }
+  
+  .hero__bg--section {
+    margin-bottom: 10px;
+    margin-left: 0px !important;
+  }
+  
+  .hero__bg--items__inner img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
   }
 }
 @media only screen and (min-width: 640px) {

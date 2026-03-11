@@ -1009,7 +1009,12 @@ body {
 }
 .hero__bg--section {
   margin-bottom: 15px;
-  margin-left: 25px;
+  margin-left: 100px;
+}
+.hero__bg--items__inner img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
 }
 .product_show_btn.show_more {
   padding: 0 4.7rem;
@@ -1105,7 +1110,7 @@ body {
   max-width: 100%;
   display: block;
   max-height: 300px;
-  border-radius: 20px;
+  border-radius: 2px;
 }
 
 /* Ribbon wrapper with clip-path */
@@ -1537,10 +1542,11 @@ body {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  min-width: 300px;
 }
-.sidebar-header:hover {
+/* .sidebar-header:hover {
   background-color: var(--secondary-color);
-}
+} */
 .sidebar-header.active {
   background-color: var(--secondary-color);
 }

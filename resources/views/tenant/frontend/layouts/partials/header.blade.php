@@ -60,13 +60,11 @@
             font-weight: 500;
         }
 
-        /* Custom Animated Search Bar Design */
+        /* Custom Search Bar Design */
         .header__search--form {
-            background: linear-gradient(135deg, #e91e63 0%, #d81b60 100%);
-            border-radius: 50px;
-            padding: 5px;
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.35);
-            transition: all 0.3s ease;
+            background: transparent;
+            border-radius: 5px;
+            padding: 0;
             width: 100%;
             max-width: 650px;
             margin: 0 auto;
@@ -88,12 +86,12 @@
         .custom__search--container {
             position: relative;
             background: white;
-            border-radius: 45px;
+            border-radius: 5px;
             display: flex;
             align-items: center;
-            overflow: hidden;
-            padding: 0px 20px;
-            min-height: 55px;
+            overflow: visible;
+            padding: 0px;
+            min-height: 45px;
         }
 
         .custom__search--input {
@@ -102,12 +100,17 @@
             outline: none;
             background: transparent;
             padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 400;
             color: #333;
             width: 100%;
             min-width: 250px;
             z-index: 2;
+        }
+
+        .custom__search--input::placeholder {
+            color: #999;
+            font-size: 14px;
         }
 
         .custom__search--label {
@@ -183,32 +186,29 @@
         }
 
         .custom__search--button {
-            background: transparent;
+            background: var(--primary-color);
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
             flex-shrink: 0;
-            margin-left: 10px;
+            margin-left: 0;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .custom__search--button:hover {
+            background: #D94444;
         }
 
         .custom__search--button i {
-            color: #e91e63;
+            color: #ffffff;
             font-size: 20px;
             transition: all 0.3s ease;
-            margin-top: 8px;
-        }
-
-
-
-
-
-        .custom__search--button:active {
-            transform: scale(0.95);
+            margin-top: 10px;
         }
 
         .header__select--categories {
@@ -269,12 +269,12 @@
         @media (max-width: 768px) {
             .header__search--form {
                 max-width: 100%;
-                padding: 4px;
+                padding: 0;
             }
 
             .custom__search--container {
-                padding: 10px 15px;
-                min-height: 50px;
+                padding: 0;
+                min-height: 45px;
             }
 
             .custom__search--input {
@@ -283,36 +283,26 @@
                 min-width: 180px;
             }
 
-            .custom__search--label {
-                font-size: 14px;
-                left: 30px;
-            }
-
-            .custom__search--input:focus+.custom__search--label,
-            .custom__search--input:valid+.custom__search--label {
-                font-size: 11px;
-            }
-
             .custom__search--button {
                 width: 45px;
                 height: 45px;
             }
 
             .custom__search--button i {
-                font-size: 22px;
+                font-size: 18px;
             }
         }
 
         @media (max-width: 480px) {
             .header__search--form {
-                border-radius: 35px;
-                padding: 3px;
+                border-radius: 5px;
+                padding: 0;
                 max-width: 100%;
             }
 
             .custom__search--container {
-                padding: 8px 12px;
-                min-height: 45px;
+                padding: 0;
+                min-height: 40px;
             }
 
             .custom__search--input {
@@ -321,19 +311,13 @@
                 min-width: 150px;
             }
 
-            .custom__search--label {
-                font-size: 13px;
-                left: 25px;
-            }
-
             .custom__search--button {
                 width: 40px;
                 height: 40px;
-                margin-left: 5px;
             }
 
             .custom__search--button i {
-                font-size: 20px;
+                font-size: 16px;
             }
         }
 
@@ -572,6 +556,93 @@
             .header__topbar--inner {
                 padding: 5px 10px !important;
             }
+
+            /* Mobile user icon optimization */
+            .header__account--btn img {
+                width: 28px !important;
+                height: 28px !important;
+                border-width: 1px !important;
+            }
+
+            .header__account--btn .fi-rr-user {
+                font-size: 18px !important;
+            }
+
+            .header__account--btn {
+                gap: 4px !important;
+                padding: 4px 6px !important;
+            }
+
+            /* Hide welcome text on very small screens */
+            .welcome-sign-in-text {
+                display: none !important;
+            }
+
+            .welcome-sign-in .fi-rr-user {
+                margin-right: 0 !important;
+                font-size: 20px !important;
+            }
+
+            .welcome-sign-in {
+                padding: 6px !important;
+                min-width: auto !important;
+            }
+        }
+
+        /* Medium mobile devices (576px - 767px) */
+        @media (min-width: 576px) and (max-width: 767px) {
+            .header__account--btn img {
+                width: 32px !important;
+                height: 32px !important;
+                border-width: 1.5px !important;
+            }
+
+            .header__account--btn .fi-rr-user {
+                font-size: 20px !important;
+            }
+
+            .header__account--btn {
+                gap: 5px !important;
+                padding: 5px 8px !important;
+            }
+
+            .welcome-sign-in-text span {
+                font-size: 10px !important;
+            }
+
+            .welcome-sign-in-text span:last-child {
+                font-size: 12px !important;
+            }
+
+            .welcome-sign-in .fi-rr-user {
+                font-size: 20px !important;
+                margin-right: 6px !important;
+            }
+        }
+
+        /* Tablet devices (768px - 991px) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .header__account--btn img {
+                width: 36px !important;
+                height: 36px !important;
+            }
+
+            .header__account--btn .fi-rr-user {
+                font-size: 22px !important;
+            }
+
+            .header__account--btn {
+                gap: 6px !important;
+                padding: 6px 10px !important;
+            }
+
+            .welcome-sign-in-text span {
+                font-size: 11px !important;
+            }
+
+            .welcome-sign-in-text span:last-child {
+                font-size: 13px !important;
+            }
         }
     </style>
     <header class="header__section">
@@ -624,7 +695,8 @@
                     <div class="main__logo order-0">
                         <h1 class="main__logo--title">
                             <a class="main__logo--link" href="{{ url('/') }}">
-                                <img class="main__logo--img" style="max-width: 220px; max-height: 62px;"
+                                <img class="main__logo--img"
+                                    style="max-width: 220px; max-height: 62px;border-radius: 5px;"
                                     src="{{ optional($generalInfo)->logo_dark ? url(optional($generalInfo)->logo_dark) : '' }}"
                                     alt="{{ optional($generalInfo)->company_name ?? config('app.name') }}" />
                             </a>

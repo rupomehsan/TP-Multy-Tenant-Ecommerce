@@ -5,7 +5,7 @@
                 <div class="footer__widget footer__widget--width col-lg-3 col-xl-3">
                     <h1 class="main__logo--title mb-4">
                         <a class="main__logo--link" href="{{ url('/') }}">
-                            <img class="main__logo--img" style="max-width: 220px; max-height: 62px;"
+                            <img class="main__logo--img" style="max-width: 220px; max-height: 62px;border-radius: 5px;"
                                 src="{{ optional($generalInfo)->logo_dark ? url(optional($generalInfo)->logo_dark) : '' }}"
                                 alt="{{ optional($generalInfo)->company_name ?? config('app.name') }}" />
                         </a>
