@@ -191,33 +191,32 @@
                                 $subcategories = DB::table('subcategories')->where('category_id', $category->id)->get();
                             @endphp
                             <div class="menu-item">
-                                <div class="menu-button" data-toggle="submenu-{{ $category->id }}">
-                                    <span class="menu-icon">
-                                        @if ($category->name == 'Fruits & Vegetables')
-                                            <i class="bi bi-apple"></i>
-                                        @elseif ($category->name == 'Meats & Seafood')
-                                            <i class="bi bi-fish"></i>
-                                        @elseif ($category->name == 'Breakfast & Dairy')
-                                            <i class="bi bi-egg"></i>
-                                        @elseif ($category->name == 'Beverages')
-                                            <i class="bi bi-cup"></i>
-                                        @elseif ($category->name == 'Breads & Bakery')
-                                            <i class="bi bi-cake"></i>
-                                        @elseif ($category->name == 'Frozen Foods')
-                                            <i class="bi bi-snow"></i>
-                                        @elseif ($category->name == 'Biscuits & Snacks')
-                                            <i class="bi bi-cookie"></i>
-                                        @elseif ($category->name == 'Grocery & Staples')
-                                            <i class="bi bi-basket"></i>
-                                        @else
-                                            <i class="bi bi-box"></i>
-                                        @endif
-                                    </span>
-                                    <span>{{ $category->name }}</span>
-                                    @if (count($subcategories) > 0)
+                                @if (count($subcategories) > 0)
+                                    <div class="menu-button" data-toggle="submenu-{{ $category->id }}">
+                                        <span class="menu-icon">
+                                            @if ($category->icon)
+                                                <img src="{{ asset($category->icon) }}" alt="{{ $category->name }}"
+                                                    width="20" height="20">
+                                            @else
+                                                <i class="bi bi-folder"></i>
+                                            @endif
+                                        </span>
+                                        <span>{{ $category->name }}</span>
                                         <i class="bi bi-chevron-right menu-arrow"></i>
-                                    @endif
-                                </div>
+                                    </div>
+                                @else
+                                    <a class="menu-button" href="{{ url('shop') }}?category={{ $category->slug }}">
+                                        <span class="menu-icon">
+                                            @if ($category->icon)
+                                                <img src="{{ asset($category->icon) }}" alt="{{ $category->name }}"
+                                                    width="20" height="20">
+                                            @else
+                                                <i class="bi bi-folder"></i>
+                                            @endif
+                                        </span>
+                                        <span>{{ $category->name }}</span>
+                                    </a>
+                                @endif
                                 @if (count($subcategories) > 0)
                                     <div class="submenu" id="submenu-{{ $category->id }}">
                                         @foreach ($subcategories as $subcategory)
