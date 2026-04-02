@@ -64,11 +64,7 @@ class DeliveryController extends Controller
                     'updated_at' => now(),
                 ]);
 
-            DB::table('order_progress')->insert([
-                'order_id' => $orderId,
-                'order_status' => 3,
-                'created_at' => Carbon::now()
-            ]);
+            
         }
 
         // If the status is 'delivered', update the order status in the orders table
@@ -80,11 +76,7 @@ class DeliveryController extends Controller
                     'payment_status' => 1, // Assuming payment is marked as paid on delivery
                     'updated_at' => now(),
                 ]);
-            DB::table('order_progress')->insert([
-                'order_id' => $orderId,
-                'order_status' => 4,
-                'created_at' => Carbon::now()
-            ]);
+           
         }
 
         if ($status === 'returned') {
@@ -94,11 +86,7 @@ class DeliveryController extends Controller
                     'order_status' => 5, // Assuming 5 is the status code for 'returned'
                     'updated_at' => now(),
                 ]);
-            DB::table('order_progress')->insert([
-                'order_id' => $orderId,
-                'order_status' => 5,
-                'created_at' => Carbon::now()
-            ]);
+           
         }
 
         // Redirect back with success message

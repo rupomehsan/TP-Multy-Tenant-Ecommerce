@@ -1452,10 +1452,9 @@ class ApiController extends BaseController
 
             $order = DB::table('orders')->where('order_no', $request->order_no)->first();
             if ($order) {
-                $data = DB::table('order_progress')->where('order_id', $order->id)->orderBy('id', 'asc')->get();
                 return response()->json([
                     'success' => true,
-                    'date' => OrderProgressResource::collection($data)
+                    'date' => $order,
                 ], 200);
             } else {
                 return response()->json([

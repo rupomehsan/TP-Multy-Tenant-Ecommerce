@@ -40,46 +40,7 @@
         </div>
     </div>
 
-    {{-- @php
-        if (Auth::user()) {
-            $savedAddressed = DB::table('user_addresses')
-                ->where('user_id', Auth::user()->id)
-                ->get();
-        }
-    @endphp
 
-    @auth
-        @if (count($savedAddressed) > 0)
-            <div class="single-details-checkout-widget">
-                <h5 class="checkout-widget-title">Saved Addresses</h5>
-                <div class="row gx-1">
-                    @foreach ($savedAddressed as $index => $address)
-                        <div class="col-6 mb-2">
-                            <div class="address_box">
-                                <label for="saved_address_{{ $address->slug }}">
-                                    <b class="d-block"><input type="radio" id="saved_address_{{ $address->slug }}"
-                                            name="saved_address" onchange="applySavedAddress('{{ $address->slug }}')">
-                                        {{ $address->address_type }} Address</b>
-                                    <address>{{ $address->address }}, {{ $address->state }}-{{ $address->post_code }},
-                                        {{ $address->city }}</address>
-
-                                    <input type="hidden" id="saved_address_line_{{ $address->slug }}"
-                                        value="{{ $address->address }}">
-                                    <input type="hidden" id="saved_address_district_{{ $address->slug }}"
-                                        value="{{ $address->city }}">
-                                    <input type="hidden" id="saved_address_upazila_{{ $address->slug }}"
-                                        value="{{ $address->state }}">
-                                    <input type="hidden" id="saved_address_post_code_{{ $address->slug }}"
-                                        value="{{ $address->post_code }}">
-
-                                </label>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        @endif
-    @endauth --}}
 
     @php
         if (Auth::guard('customer')->check()) {
@@ -107,7 +68,8 @@
                                             name="saved_address" onchange="applySavedAddress('{{ $address->slug }}')"
                                             {{ $index == 0 ? 'checked' : '' }}>
                                         {{ $address->address_type }} {{ __('checkout.address') }}</b>
-                                    <address>{{ $address->address }}, {{ $address->state }}, {{ $address->city }}-{{ $address->post_code }}</address>
+                                    <address>{{ $address->address }}, {{ $address->state }},
+                                        {{ $address->city }}-{{ $address->post_code }}</address>
 
                                     <input type="hidden" id="saved_address_line_{{ $address->slug }}"
                                         value="{{ $address->address }}">
@@ -147,7 +109,8 @@
                     $currentLocale = app()->getLocale();
                 @endphp
                 <select name="shipping_district_id" data-toggle="select2" id="shipping_district_id">
-                    <option data-display="{{ __('checkout.select_one') }}" value="">{{ __('checkout.select_one') }}</option>
+                    <option data-display="{{ __('checkout.select_one') }}" value="">
+                        {{ __('checkout.select_one') }}</option>
                     @foreach ($districts as $district)
                         <option value="{{ $district->id }}">
                             {{ $currentLocale === 'bn' && $district->bn_name ? $district->bn_name : $district->name }}
@@ -158,12 +121,14 @@
             <div class="form-group">
                 <label>{{ __('checkout.select_thana') }} <span style="color: red;">*</span></label>
                 <select name="shipping_thana_id" data-toggle="select2" id="shipping_thana_id">
-                    <option data-display="{{ __('checkout.select_one') }}" value="">{{ __('checkout.select_one') }}</option>
+                    <option data-display="{{ __('checkout.select_one') }}" value="">
+                        {{ __('checkout.select_one') }}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>{{ __('checkout.postal_code') }}</label>
-                <input type="text" name="shipping_postal_code" id="shipping_postal_code" placeholder="{{ __('checkout.postal_code_placeholder') }}" />
+                <input type="text" name="shipping_postal_code" id="shipping_postal_code"
+                    placeholder="{{ __('checkout.postal_code_placeholder') }}" />
             </div>
 
             {{-- <div class="checkout-checkbox-details">
@@ -224,7 +189,7 @@
                     </div>
                 </label>
 
-                {{-- SSL Payment Gateway (Commented Out)
+                {{-- SSL Payment Gateway (Commented Out) --}}
                 @if ($paymentGateways->isNotEmpty() && isset($paymentGateways[0]) && $paymentGateways[0]->status == 1)
                     <label for="flexRadioDefault2">
                         <div class="payment-method-input-main">
@@ -232,10 +197,11 @@
                                 id="flexRadioDefault2" required />
                             SSLCommerz
                         </div>
-                        <img alt="SSLCommerz" src="{{ '/images/ssl_commerz.png' }}" style="max-width: 90px;" />
+                        <img alt="SSLCommerz" src="{{ asset('tenant/frontend/img/ssl_commerz.png') }}"
+                            style="max-width: 90px;" />
                     </label>
                 @endif
-                --}
+
 
                 {{-- @if ($paymentGateways[2]->status == 1)
                 <label for="flexRadioDefault3" style="cursor: no-drop;">
@@ -268,7 +234,8 @@
                 <label for="flexRadioDefault4">
                     <div class="payment-method-input-main">
                         <input class="form-check-input" type="radio" name="delivery_method"
-                            onchange="changeDeliveryMethod(1)" value="1" id="flexRadioDefault4" required checked />
+                            onchange="changeDeliveryMethod(1)" value="1" id="flexRadioDefault4" required
+                            checked />
                         {{ __('checkout.home_delivery') }}
                     </div>
                 </label>
@@ -293,7 +260,8 @@
                         {{-- <p class="text-danger">No outlets available for pickup.</p> --}}
                     @else
                         <select name="outlet_id" data-toggle="select2" id="outlet_id">
-                            <option data-display="{{ __('checkout.select_pickup_outlet') }}" value="">{{ __('checkout.select_pickup_outlet') }}</option>
+                            <option data-display="{{ __('checkout.select_pickup_outlet') }}" value="">
+                                {{ __('checkout.select_pickup_outlet') }}</option>
                             @foreach ($outlets as $outlet)
                                 <option value="{{ $outlet->id }}">{{ $outlet->title }}</option>
                             @endforeach
@@ -312,8 +280,11 @@
             <div class="checkout-checkbox-details">
                 <input class="form-check-input" type="checkbox" id="flexCheckChecked2" value="" required />
                 <label class="form-check-label" for="flexCheckChecked2">
-                    {{ __('checkout.i_agree') }} <a href="{{ url('terms/of/services') }}" target="_blank">{{ __('checkout.terms_and_conditions') }}</a>, <a href="{{ url('privacy/policy') }}" target="_blank">{{ __('checkout.privacy_policy') }}</a> & <a
-                        href="{{ url('refund/policy') }}" target="_blank">{{ __('checkout.refund_return_policy') }}</a>.
+                    {{ __('checkout.i_agree') }} <a href="{{ url('terms/of/services') }}"
+                        target="_blank">{{ __('checkout.terms_and_conditions') }}</a>, <a
+                        href="{{ url('privacy/policy') }}" target="_blank">{{ __('checkout.privacy_policy') }}</a> &
+                    <a href="{{ url('refund/policy') }}"
+                        target="_blank">{{ __('checkout.refund_return_policy') }}</a>.
                 </label>
             </div>
         </div>

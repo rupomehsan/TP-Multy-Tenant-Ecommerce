@@ -88,12 +88,7 @@ class PaymentController extends Controller
                 'order_status' => 1
             ]);
 
-            DB::table('order_progress')->insert([
-                'order_id' => $orderInfo->id,
-                'order_status' => 1,
-                'created_at' => Carbon::now()
-            ]);
-
+           
             DB::table('order_payments')->insert([
                 'order_id' => $orderInfo->id,
                 'payment_through' => "SSLCommerz",
@@ -217,9 +212,7 @@ class PaymentController extends Controller
                 ->where('trx_id', $tran_id)
                 ->delete();
 
-            $orderProgress = DB::table('order_progress')
-                ->where('order_id', $order_details->id)
-                ->delete();
+           
 
             $orderDetails = DB::table('order_details')
                 ->where('order_id', $order_details->id)
