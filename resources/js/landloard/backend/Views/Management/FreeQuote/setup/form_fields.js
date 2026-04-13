@@ -1,0 +1,52 @@
+export default [
+  {
+    name: "full_name",
+    label: "Enter full name",
+    type: "text",
+    value: "",
+    placeholder: "e.g., John Doe",
+  },
+  {
+    name: "email",
+    label: "Enter email",
+    type: "email",
+    value: "",
+    placeholder: "e.g., john@example.com",
+  },
+  {
+    name: "phone",
+    label: "Enter phone",
+    type: "text",
+    value: "",
+    placeholder: "e.g., +1234567890",
+  },
+  {
+    name: "company_name",
+    label: "Enter company name",
+    type: "text",
+    value: "",
+    placeholder: "e.g., ABC Corporation",
+  },
+  {
+    name: "service_required",
+    label: "Enter service required",
+    type: "text",
+    value: "",
+    placeholder: "e.g., Web Development, Mobile App",
+  },
+  {
+    name: "budget_range",
+    label: "Enter budget range",
+    type: "text",
+    value: "",
+    placeholder: "e.g., $5000 - $10000",
+  },
+  {
+    name: "project_description",
+    label: "Enter project description",
+    type: "textarea",
+    value: "",
+    placeholder: "Describe your project requirements...",
+    class: 12,
+  },
+];

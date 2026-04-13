@@ -31,6 +31,13 @@
                   title="Visit Website" aria-label="Visit Website">
                   <i class="fas fa-globe" aria-hidden="true" style="font-size:16px;"></i>
               </a>
+              <!-- Icon-only pos -->
+              <a href="{{ route('CreateNewOrder') }}" target="_blank"
+                  class="btn text-white rounded d-flex align-items-center justify-content-center"
+                  style="width:42px; height:36px; padding:6px; background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"
+                  title="POS" aria-label="POS">
+                  <i class="fas fa-cash-register" aria-hidden="true" style="font-size:16px;"></i>
+              </a>
           </div>
           {{-- <div class="d-flex align-items-center">
               <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">

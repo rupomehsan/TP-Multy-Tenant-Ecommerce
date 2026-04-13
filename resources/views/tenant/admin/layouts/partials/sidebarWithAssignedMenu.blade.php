@@ -1079,64 +1079,9 @@ $backupModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id
         @endif
     @endif
 
-    {{-- website config module --}}
-    @if ($websiteConfigModule->count())
-        <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
-        <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Website Config</li>
-
-        @if (checkAuth('general/info'))
-            <li>
-                <a href="{{ route('GeneralInfo') }}" data-active-paths="{{ route('GeneralInfo') }}">
-                    <i class="feather-grid"></i>
-                    <span>General Info</span>
-                </a>
-            </li>
-        @endif
-        @if (checkAuth('website/theme/page'))
-            <li>
-                <a href="{{ route('WebsiteThemePage') }}" data-active-paths="{{ route('WebsiteThemePage') }}">
-                    <i class="mdi mdi-format-color-fill" style="font-size: 18px"></i>
-                    <span>Website Theme Color</span>
-                </a>
-            </li>
-        @endif
-        @if (checkAuth('social/media/page'))
-            <li>
-                <a href="{{ route('SocialMediaPage') }}" data-active-paths="{{ route('SocialMediaPage') }}">
-                    <i class="mdi mdi-link-variant" style="font-size: 17px"></i>
-                    <span>Social Media Links</span>
-                </a>
-            </li>
-        @endif
-        @if (checkAuth('seo/homepage'))
-            <li>
-                <a href="{{ route('SeoHomePage') }}" data-active-paths="{{ route('SeoHomePage') }}">
-                    <i class="dripicons-search"></i>
-                    <span>Home Page SEO</span>
-                </a>
-            </li>
-        @endif
-        @if (checkAuth('custom/css/js'))
-            <li>
-                <a href="{{ route('CustomCssJs') }}" data-active-paths="{{ route('CustomCssJs') }}">
-                    <i class="feather-code"></i>
-                    <span>Custom CSS & JS</span>
-                </a>
-            </li>
-        @endif
-        @if (checkAuth('social/chat/script/page'))
-            <li>
-                <a href="{{ route('SocialChatScriptPage') }}"
-                    data-active-paths="{{ route('SocialChatScriptPage') }}">
-                    <i class="mdi mdi-code-brackets"></i>
-                    <span>Social & Chat Scripts</span>
-                </a>
-            </li>
-        @endif
-    @endif
 
 
-    @if ($cmsModule->count())
+    @if ($contentManagementModule->count())
         <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
         <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
 
@@ -1337,6 +1282,61 @@ $backupModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id
         @endif
     @endif
 
+    {{-- website config module --}}
+    @if ($websiteConfigModule->count())
+        <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
+        <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Website Config</li>
+
+        @if (checkAuth('general/info'))
+            <li>
+                <a href="{{ route('GeneralInfo') }}" data-active-paths="{{ route('GeneralInfo') }}">
+                    <i class="feather-grid"></i>
+                    <span>General Info</span>
+                </a>
+            </li>
+        @endif
+        @if (checkAuth('website/theme/page'))
+            <li>
+                <a href="{{ route('WebsiteThemePage') }}" data-active-paths="{{ route('WebsiteThemePage') }}">
+                    <i class="mdi mdi-format-color-fill" style="font-size: 18px"></i>
+                    <span>Website Theme Color</span>
+                </a>
+            </li>
+        @endif
+        @if (checkAuth('social/media/page'))
+            <li>
+                <a href="{{ route('SocialMediaPage') }}" data-active-paths="{{ route('SocialMediaPage') }}">
+                    <i class="mdi mdi-link-variant" style="font-size: 17px"></i>
+                    <span>Social Media Links</span>
+                </a>
+            </li>
+        @endif
+        @if (checkAuth('seo/homepage'))
+            <li>
+                <a href="{{ route('SeoHomePage') }}" data-active-paths="{{ route('SeoHomePage') }}">
+                    <i class="dripicons-search"></i>
+                    <span>Home Page SEO</span>
+                </a>
+            </li>
+        @endif
+        @if (checkAuth('custom/css/js'))
+            <li>
+                <a href="{{ route('CustomCssJs') }}" data-active-paths="{{ route('CustomCssJs') }}">
+                    <i class="feather-code"></i>
+                    <span>Custom CSS & JS</span>
+                </a>
+            </li>
+        @endif
+        @if (checkAuth('social/chat/script/page'))
+            <li>
+                <a href="{{ route('SocialChatScriptPage') }}"
+                    data-active-paths="{{ route('SocialChatScriptPage') }}">
+                    <i class="mdi mdi-code-brackets"></i>
+                    <span>Social & Chat Scripts</span>
+                </a>
+            </li>
+        @endif
+    @endif
 
     {{-- download & backup module --}}
     @if ($backupModule->count())

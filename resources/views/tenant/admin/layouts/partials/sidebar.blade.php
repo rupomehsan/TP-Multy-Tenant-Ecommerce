@@ -585,51 +585,7 @@
         </ul>
     </li>
 
-    <li>
-        <a href="javascript:void(0);" class="has-arrow">
-            <i class="feather-settings"></i>
-            <span>Website Config</span>
-        </a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li>
-                <a href="{{ route('GeneralInfo') }}" data-active-paths="{{ route('GeneralInfo') }}">
-                    <i class="feather-grid"></i>
-                    <span>General Info</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('WebsiteThemePage') }}" data-active-paths="{{ route('WebsiteThemePage') }}">
-                    <i class="mdi mdi-format-color-fill" style="font-size: 18px"></i>
-                    <span>Website Theme Color</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('SocialMediaPage') }}" data-active-paths="{{ route('SocialMediaPage') }}">
-                    <i class="mdi mdi-link-variant" style="font-size: 17px"></i>
-                    <span>Social Media Links</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('SeoHomePage') }}" data-active-paths="{{ route('SeoHomePage') }}">
-                    <i class="dripicons-search"></i>
-                    <span>Home Page SEO</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('CustomCssJs') }}" data-active-paths="{{ route('CustomCssJs') }}">
-                    <i class="feather-code"></i>
-                    <span>Custom CSS & JS</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('SocialChatScriptPage') }}"
-                    data-active-paths="{{ route('SocialChatScriptPage') }}">
-                    <i class="mdi mdi-code-brackets"></i>
-                    <span>Social & Chat Scripts</span>
-                </a>
-            </li>
-        </ul>
-    </li>
+
 
     <li>
         <a href="javascript:void(0);" class="has-arrow">
@@ -786,6 +742,52 @@
                 </a>
             </li>
 
+        </ul>
+    </li>
+
+    <li>
+        <a href="javascript:void(0);" class="has-arrow">
+            <i class="feather-settings"></i>
+            <span>Website Config</span>
+        </a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li>
+                <a href="{{ route('GeneralInfo') }}" data-active-paths="{{ route('GeneralInfo') }}">
+                    <i class="feather-grid"></i>
+                    <span>General Info</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('WebsiteThemePage') }}" data-active-paths="{{ route('WebsiteThemePage') }}">
+                    <i class="mdi mdi-format-color-fill" style="font-size: 18px"></i>
+                    <span>Website Theme Color</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('SocialMediaPage') }}" data-active-paths="{{ route('SocialMediaPage') }}">
+                    <i class="mdi mdi-link-variant" style="font-size: 17px"></i>
+                    <span>Social Media Links</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('SeoHomePage') }}" data-active-paths="{{ route('SeoHomePage') }}">
+                    <i class="dripicons-search"></i>
+                    <span>Home Page SEO</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('CustomCssJs') }}" data-active-paths="{{ route('CustomCssJs') }}">
+                    <i class="feather-code"></i>
+                    <span>Custom CSS & JS</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('SocialChatScriptPage') }}"
+                    data-active-paths="{{ route('SocialChatScriptPage') }}">
+                    <i class="mdi mdi-code-brackets"></i>
+                    <span>Social & Chat Scripts</span>
+                </a>
+            </li>
         </ul>
     </li>
     {{-- End E-commerce Module --}}

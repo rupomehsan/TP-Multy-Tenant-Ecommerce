@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard</title>
+    <!-- loader-->
+    <link href="{{ asset('landloard/backend/assets/css/pace.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('landloard/backend/assets/js/pace.min.js') }}"></script>
+    <!--favicon-->
+    <link rel="icon" href="{{ asset('landloard/backend/assets/images/favicon.ico') }}" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="{{ asset('landloard/backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}"
+        rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="{{ asset('landloard/backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="{{ asset('landloard/backend/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="{{ asset('landloard/backend/assets/css/animate.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="{{ asset('landloard/backend/assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Metismenu CSS-->
+    <link href="{{ asset('landloard/backend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="{{ asset('landloard/backend/assets/css/custom/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('landloard/backend/assets/css/app-style.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('landloard/backend/assets/plugins/summernote/dist/summernote-bs4.css') }}" />
+
+    <!-- Theme CSS -->
+    <link href="{{ asset('css/theme.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- latest jquery-->
+    <script src="/plugins/js/sweet_alert.js" defer></script>
+    <script src="/landloard/backend/assets/js/jquery.min.js"></script>
+    <script src="{{ asset('landloard/backend/assets/plugins/summernote/dist/summernote-bs4.min.js') }}"></script>
+    <script src="{{ asset('landloard/backend/assets/plugins/inputtags/js/bootstrap-tagsinput.js') }}"></script>
+    <!-- Lightbox2 CDN -->
+    {{-- <link href="landloard/backend/assets/plugins/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <script src="landloard/backend/assets/plugins/lightbox/js/lightbox.min.js"></script> --}}
+
+    @vite(['resources/js/landloard/backend/Views/app.js'])
+
+    <!-- Theme Manager Script -->
+    <script src="{{ asset('js/themeManager.js') }}"></script>
+</head>
+
+<body class="bg-theme bg-theme1 light-theme" id="body">
+    <div id="app">
+        <app></app>
+    </div>
+</body>
+
+</html>
