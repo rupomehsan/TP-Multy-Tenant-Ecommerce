@@ -23,29 +23,9 @@
         @endif
         }
 
-        @if ($hasImage)
-            .bg-login::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
-                z-index: 1;
-            }
-        @endif
 
-        .bg-login::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, {{ $bgColor }}33 0%, {{ $bgColor }}11 100%);
-            z-index: 2;
-        }
+
+
 
         /* Responsive optimization */
         @media (max-width: 991px) {
@@ -99,12 +79,12 @@
                     <button type="submit" class="btn btn-success btn-block">{{ __('Login') }}</button>
 
                     <!-- Demo Mode Credentials -->
-                    <div class="mt-3 d-none">
+                    <div class="mt-3 ">
                         <div class="table-responsive">
                             <table class="table table-bordered table-sm mb-0">
                                 <tbody>
                                     <tr>
-                                        <td class="align-middle" style="word-break:break-all;">demo@example.com</td>
+                                        <td class="align-middle" style="word-break:break-all;">demouser@tpmart.com</td>
                                         <td class="align-middle" style="word-break:break-all;">12345678</td>
                                         <td class="text-center align-middle">
                                             <button type="button" class="btn btn-info btn-sm px-3 w-100 w-md-auto"
@@ -150,7 +130,7 @@
 
     // Auto Fill Admin Credentials
     function autoFillAdmin() {
-        document.getElementById('email').value = 'demo@example.com';
+        document.getElementById('email').value = 'demouser@tpmart.com';
         document.getElementById('password').value = '12345678';
     }
 </script>
@@ -186,7 +166,7 @@
     });
 
     function autoFillAdmin() {
-        document.getElementById('email').value = 'demo@example.com';
+        document.getElementById('email').value = 'demouser@tpmart.com';
         document.getElementById('password').value = '12345678';
     }
 </script>

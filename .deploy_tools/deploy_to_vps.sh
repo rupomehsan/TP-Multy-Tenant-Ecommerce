@@ -9,7 +9,7 @@
 # === Configurations ===
 VPS_USER="root"
 VPS_IP="161.248.201.157"
-VPS_DEST="/www/wwwroot/bdtask.techparkit.info"
+VPS_DEST="/www/wwwroot/tpmart.techparkit.info"
 ZIP_FILE="app.zip"
 IGNORE_FILE=".deploy_tools/.zip_ignore"
 SSH_KEY="$HOME/.ssh/id_rsa" # Change if different
