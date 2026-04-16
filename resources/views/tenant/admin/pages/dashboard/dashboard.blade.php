@@ -71,96 +71,157 @@
         /* KPI Card Styling - Enhanced 3D Effect */
         .kpi-card {
             position: relative;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
         }
 
         .kpi-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
         }
 
         .kpi-card::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.4s;
+            bottom: 0;
+            opacity: 0.95;
+            z-index: 0;
         }
 
-        .kpi-card:hover::before {
-            transform: scaleX(1);
+        .kpi-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+            z-index: 0;
         }
 
         .kpi-card .card-body {
-            padding: 25px;
+            position: relative;
+            z-index: 1;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .kpi-card .kpi-value {
+            flex-shrink: 0;
+        }
+
+        .kpi-card .kpi-footer {
+            margin-top: auto;
+            flex-shrink: 0;
+        }
+
+        /* KPI Card Color Variants */
+        .kpi-card.kpi-revenue::before {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .kpi-card.kpi-orders::before {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .kpi-card.kpi-aov::before {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .kpi-card.kpi-today::before {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .kpi-card.kpi-customers::before {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .kpi-card.kpi-success::before {
+            background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
+        }
+
+        .kpi-card.kpi-revenue-growth::before {
+            background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+        }
+
+        .kpi-card.kpi-orders-growth::before {
+            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
         }
 
         .kpi-icon {
             position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 42px;
-            height: 70px;
-            width: 70px;
-            line-height: 70px;
+            top: 20px;
+            right: 20px;
+            font-size: 48px;
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
             text-align: center;
-            border-radius: 15px;
+            border-radius: 20px;
             font-weight: 300;
-            opacity: 0.15;
+            color: rgba(255, 255, 255, 0.3);
             transition: all 0.4s;
+            z-index: 1;
         }
 
         .kpi-card:hover .kpi-icon {
-            opacity: 0.25;
+            color: rgba(255, 255, 255, 0.5);
             transform: rotate(10deg) scale(1.1);
         }
 
         .kpi-label {
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #858796;
-            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
         }
 
         .kpi-value {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            color: #ffffff;
+            margin-bottom: 12px;
             line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .kpi-comparison {
+        .kpi-footer {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 13px;
-            margin-top: 8px;
+            margin-top: 12px;
+            min-height: 32px;
         }
 
         .kpi-growth {
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 20px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 0.3px;
             transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         .kpi-growth i {
@@ -168,21 +229,34 @@
         }
 
         .kpi-growth.positive {
-            background: linear-gradient(135deg, rgba(28, 200, 138, 0.15), rgba(28, 200, 138, 0.05));
-            color: #1cc88a;
-            border: 1px solid rgba(28, 200, 138, 0.3);
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         .kpi-growth.negative {
-            background: linear-gradient(135deg, rgba(231, 74, 59, 0.15), rgba(231, 74, 59, 0.05));
-            color: #e74a3b;
-            border: 1px solid rgba(231, 74, 59, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.2);
         }
 
         .kpi-growth.neutral {
-            background: linear-gradient(135deg, rgba(98, 120, 152, 0.15), rgba(98, 120, 152, 0.05));
-            color: #858796;
-            border: 1px solid rgba(98, 120, 152, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .kpi-card .btn-light {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+            padding: 4px 12px;
+        }
+
+        .kpi-card .btn-light:hover {
+            background: rgba(255, 255, 255, 0.35);
+            color: #ffffff;
         }
 
         @keyframes pulse {
@@ -198,14 +272,11 @@
         }
 
         .kpi-comparison-text {
-            color: #858796;
+            color: rgba(255, 255, 255, 0.8);
             font-size: 11px;
             font-weight: 500;
             margin-left: 4px;
             letter-spacing: 0.3px;
-        }
-
-        font-size: 12px;
         }
 
         /* Chart Container Styling - Modern Glass Effect */
@@ -320,11 +391,11 @@
     <div class="row">
         {{-- Total Revenue (Monthly) --}}
         <div class="col-lg-6 col-xl-3">
-            <div class="card kpi-card">
+            <div class="card kpi-card kpi-revenue">
                 <div class="card-body">
                     <div class="kpi-label">Total Revenue (Monthly)</div>
                     <div class="kpi-value">৳ {{ number_format($totalOrderAmount[0], 2) }}</div>
-                    <div class="kpi-comparison">
+                    <div class="kpi-footer">
                         @php
                             $revGrowth =
                                 $totalOrderAmount[1] > 0
@@ -337,19 +408,18 @@
                         </span>
                         <span class="kpi-comparison-text">vs last month</span>
                     </div>
-                    <div id="sparkline-revenue" class="mt-3"></div>
                 </div>
-                <i class="kpi-icon feather-dollar-sign" style="color: #00C2B2; background: rgba(0, 194, 178, 0.1);"></i>
+                <i class="kpi-icon feather-dollar-sign"></i>
             </div>
         </div>
 
         {{-- Total Orders (Monthly) --}}
         <div class="col-lg-6 col-xl-3">
-            <div class="card kpi-card">
+            <div class="card kpi-card kpi-orders">
                 <div class="card-body">
                     <div class="kpi-label">Total Orders (Monthly)</div>
                     <div class="kpi-value">{{ number_format($countOrders[0]) }}</div>
-                    <div class="kpi-comparison">
+                    <div class="kpi-footer">
                         @php
                             $orderGrowth =
                                 $countOrders[1] > 0 ? (($countOrders[0] - $countOrders[1]) / $countOrders[1]) * 100 : 0;
@@ -360,21 +430,20 @@
                         </span>
                         <span class="kpi-comparison-text">vs last month</span>
                     </div>
-                    <div id="sparkline-orders" class="mt-3"></div>
                 </div>
-                <i class="kpi-icon feather-shopping-cart" style="color: #0074E4; background: rgba(0, 116, 228, 0.1);"></i>
+                <i class="kpi-icon feather-shopping-cart"></i>
             </div>
         </div>
 
         {{-- Average Order Value --}}
         <div class="col-lg-6 col-xl-3">
-            <div class="card kpi-card">
+            <div class="card kpi-card kpi-aov">
                 <div class="card-body">
                     <div class="kpi-label">Average Order Value</div>
                     <div class="kpi-value">
                         ৳ {{ $countOrders[0] > 0 ? number_format($totalOrderAmount[0] / $countOrders[0], 2) : '0.00' }}
                     </div>
-                    <div class="kpi-comparison">
+                    <div class="kpi-footer">
                         @php
                             $currentAOV = $countOrders[0] > 0 ? $totalOrderAmount[0] / $countOrders[0] : 0;
                             $previousAOV = $countOrders[1] > 0 ? $totalOrderAmount[1] / $countOrders[1] : 0;
@@ -386,27 +455,24 @@
                         </span>
                         <span class="kpi-comparison-text">vs last month</span>
                     </div>
-                    <div id="sparkline-aov" class="mt-3"></div>
                 </div>
-                <i class="kpi-icon feather-trending-up" style="color: #F1BF43; background: rgba(241, 191, 67, 0.1);"></i>
+                <i class="kpi-icon feather-trending-up"></i>
             </div>
         </div>
 
         {{-- Today's Orders --}}
         <div class="col-lg-6 col-xl-3">
-            <div class="card kpi-card">
+            <div class="card kpi-card kpi-today">
                 <div class="card-body">
                     <div class="kpi-label">Today's Orders</div>
                     <div class="kpi-value">{{ number_format($todaysOrder[0]) }}</div>
-                    <div class="kpi-comparison">
-                        <a href="{{ route('ViewPendingOrders') }}" target="_blank" class="btn btn-sm btn-success"
-                            style="padding: 4px 12px; font-size: 11px;">
-                            <i class="feather-eye"></i> View All Orders
+                    <div class="kpi-footer">
+                        <a href="{{ route('ViewPendingOrders') }}" target="_blank" class="btn btn-sm btn-light">
+                            <i class="feather-eye"></i> View Orders
                         </a>
                     </div>
-                    <div id="sparkline-today" class="mt-3"></div>
                 </div>
-                <i class="kpi-icon feather-package" style="color: #DF3554; background: rgba(223, 53, 84, 0.1);"></i>
+                <i class="kpi-icon feather-package"></i>
             </div>
         </div>
     </div>
@@ -415,11 +481,11 @@
     <div class="row mt-3">
         {{-- New Users (Monthly) --}}
         <div class="col-lg-6 col-xl-3">
-            <div class="card kpi-card">
+            <div class="card kpi-card kpi-customers">
                 <div class="card-body">
                     <div class="kpi-label">New Customers (Monthly)</div>
                     <div class="kpi-value">{{ number_format($registeredUsers[0]) }}</div>
-                    <div class="kpi-comparison">
+                    <div class="kpi-footer">
                         @php
                             $userGrowth =
                                 $registeredUsers[1] > 0
@@ -432,15 +498,14 @@
                         </span>
                         <span class="kpi-comparison-text">vs last month</span>
                     </div>
-                    <div id="sparkline-users" class="mt-3"></div>
                 </div>
-                <i class="kpi-icon feather-users" style="color: #627898; background: rgba(98, 120, 152, 0.1);"></i>
+                <i class="kpi-icon feather-users"></i>
             </div>
         </div>
 
         {{-- Conversion Rate --}}
         <div class="col-lg-6 col-xl-3">
-            <div class="card kpi-card">
+            <div class="card kpi-card kpi-success">
                 <div class="card-body">
                     <div class="kpi-label">Success Rate</div>
                     @php
@@ -449,18 +514,18 @@
                             $totalOrdersRatio > 0 ? ($countOrdersRatioSuccess[0] / $totalOrdersRatio) * 100 : 0;
                     @endphp
                     <div class="kpi-value">{{ number_format($conversionRate, 1) }}%</div>
-                    <div class="kpi-comparison">
+                    <div class="kpi-footer">
                         <span class="kpi-comparison-text">{{ $countOrdersRatioSuccess[0] }} successful of
                             {{ $totalOrdersRatio }} orders</span>
                     </div>
                 </div>
-                <i class="kpi-icon feather-check-circle" style="color: #00C2B2; background: rgba(0, 194, 178, 0.1);"></i>
+                <i class="kpi-icon feather-check-circle"></i>
             </div>
         </div>
 
         {{-- Revenue Growth --}}
         <div class="col-lg-6 col-xl-3">
-            <div class="card kpi-card">
+            <div class="card kpi-card kpi-revenue-growth">
                 <div class="card-body">
                     <div class="kpi-label">Revenue Growth (MoM)</div>
                     @php
@@ -470,20 +535,20 @@
                                 : 0;
                     @endphp
                     <div class="kpi-value">{{ number_format($revenueGrowthPercent, 1) }}%</div>
-                    <div class="kpi-comparison">
+                    <div class="kpi-footer">
                         <span class="kpi-comparison-text">
                             {{ $revenueGrowthPercent >= 0 ? 'Increased' : 'Decreased' }} by
                             ৳{{ number_format(abs($totalOrderAmount[0] - $totalOrderAmount[1]), 2) }}
                         </span>
                     </div>
                 </div>
-                <i class="kpi-icon feather-bar-chart-2" style="color: #0074E4; background: rgba(0, 116, 228, 0.1);"></i>
+                <i class="kpi-icon feather-bar-chart-2"></i>
             </div>
         </div>
 
         {{-- Orders Growth --}}
         <div class="col-lg-6 col-xl-3">
-            <div class="card kpi-card">
+            <div class="card kpi-card kpi-orders-growth">
                 <div class="card-body">
                     <div class="kpi-label">Orders Growth (MoM)</div>
                     @php
@@ -491,14 +556,14 @@
                             $countOrders[1] > 0 ? (($countOrders[0] - $countOrders[1]) / $countOrders[1]) * 100 : 0;
                     @endphp
                     <div class="kpi-value">{{ number_format($ordersGrowthPercent, 1) }}%</div>
-                    <div class="kpi-comparison">
+                    <div class="kpi-footer">
                         <span class="kpi-comparison-text">
                             {{ $ordersGrowthPercent >= 0 ? 'Increased' : 'Decreased' }} by
                             {{ abs($countOrders[0] - $countOrders[1]) }} orders
                         </span>
                     </div>
                 </div>
-                <i class="kpi-icon feather-activity" style="color: #F1BF43; background: rgba(241, 191, 67, 0.1);"></i>
+                <i class="kpi-icon feather-activity"></i>
             </div>
         </div>
     </div>
@@ -1262,27 +1327,6 @@
         }
 
         /**
-         * Sparkline Charts
-         */
-        function initSparkline(selector, data, color) {
-            $(selector).sparkline(data, {
-                type: 'line',
-                width: '100%',
-                height: '60',
-                chartRangeMax: Math.max(...data) * 1.2,
-                lineColor: color,
-                fillColor: color.replace(')', ', 0.15)').replace('rgb', 'rgba'),
-                highlightLineColor: 'rgba(0,0,0,.1)',
-                highlightSpotColor: color,
-                maxSpotColor: color,
-                minSpotColor: color,
-                spotColor: color,
-                lineWidth: 2.5,
-                spotRadius: 3
-            });
-        }
-
-        /**
          * Initialize All Charts
          */
         $(document).ready(function() {
@@ -1292,36 +1336,6 @@
             initProductsChart();
             initCustomerGrowthChart();
             initOrderStatusChart();
-
-            // Initialize Sparklines
-            initSparkline('#sparkline-revenue', [
-                @for ($i = 8; $i >= 0; $i--)
-                    {{ $totalOrderAmount[$i] }}{{ $i > 0 ? ',' : '' }}
-                @endfor
-            ], '#667eea');
-            initSparkline('#sparkline-orders', [
-                @for ($i = 8; $i >= 0; $i--)
-                    {{ $countOrders[$i] }}{{ $i > 0 ? ',' : '' }}
-                @endfor
-            ], '#4e73df');
-            initSparkline('#sparkline-today', [
-                @for ($i = 8; $i >= 0; $i--)
-                    {{ $todaysOrder[$i] }}{{ $i > 0 ? ',' : '' }}
-                @endfor
-            ], '#e74a3b');
-            initSparkline('#sparkline-users', [
-                @for ($i = 8; $i >= 0; $i--)
-                    {{ $registeredUsers[$i] }}{{ $i > 0 ? ',' : '' }}
-                @endfor
-            ], '#1cc88a');
-
-            @php
-                $aovData = [];
-                for ($i = 8; $i >= 0; $i--) {
-                    $aovData[] = $countOrders[$i] > 0 ? round($totalOrderAmount[$i] / $countOrders[$i], 2) : 0;
-                }
-            @endphp
-            initSparkline('#sparkline-aov', [{{ implode(',', $aovData) }}], '#f6c23e');
         });
     </script>
 @endsection
